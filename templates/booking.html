@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+
+</head>
+
+<body>
+
+        <!-- Spinner Start -->
+
+        <!-- Spinner End -->
+
+        <!-- Header Start -->
+
+        <!-- Header End -->
+
+    {% include 'header.html' %}
+        <!-- Page Header Start -->
+        <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'image/carousel-1.jpg' %});">
+            <div class="container-fluid page-header-inner py-5">
+                <div class="container text-center pb-5">
+                    <h1 class="display-3 text-white mb-3 animated slideInDown">Booking</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center text-uppercase">
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Page Header End -->
+
+
+
+
+
+       <!-- Booking Start -->
+<!--<div class="container-xxl py-5">-->
+<!--    <div class="container">-->
+<!--        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">-->
+<!--            <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>-->
+<!--            <h1 class="mb-5">Book A <span class="text-primary text-uppercase">Lotels Room</span></h1>-->
+<!--        </div>-->
+<!--        <div class="row g-5">-->
+<!--            <div class="col-lg-6">-->
+<!--                <div class="row g-3">-->
+<!--                    <div class="col-6 text-end">-->
+<!--                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src= "{% static 'image/about-1.jpg' %}" style="margin-top: 25%;">-->
+<!--                    </div>-->
+<!--                    <div class="col-6 text-start">-->
+<!--                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'image/about-2.jpg' %}">-->
+<!--                    </div>-->
+<!--                    <div class="col-6 text-end">-->
+<!--                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'image/about-3.jpg' %}">-->
+<!--                    </div>-->
+<!--                    <div class="col-6 text-start">-->
+<!--                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'image/about-4.jpg' %}">-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--            <div class="col-lg-6">-->
+<!--                <div class="wow fadeInUp" data-wow-delay="0.2s">-->
+<!--                   &lt;!&ndash; booking_form.html &ndash;&gt;-->
+
+ <!-- Booking Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>
+            <h1 class="mb-5">Book A <span class="text-primary text-uppercase">Lotels Room</span></h1>
+        </div>
+        <div class="row g-5">
+            <div class="col-lg-6">
+                <div class="row g-3">
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src= "{% static 'image/about-1.jpg' %}" style="margin-top: 25%;">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'image/about-2.jpg' %}">
+                    </div>
+                    <div class="col-6 text-end">
+                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'image/about-3.jpg' %}">
+                    </div>
+                    <div class="col-6 text-start">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'image/about-4.jpg' %}">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="wow fadeInUp" data-wow-delay="0.2s">
+<!-- booking_form.html -->
+{% block content %}
+
+<form id="bookingForm" method="post" action="{% url 'booking' %}">
+    {% csrf_token %}
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                <label for="name">Your Name</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="number" name="number" placeholder="Your Name" required>
+                <label for="number">phone number</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                <label for="email">Your Email</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date3" data-target-input="nearest">
+                <input type="date" class="form-control" id="checkin" name="checkin" placeholder="Check In" required>
+                <label for="checkin">Check In</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating date" id="date4" data-target-input="nearest">
+                <input type="date" class="form-control" id="checkout" name="checkout" placeholder="Check Out" required>
+                <label for="checkout">Check Out</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <select class="form-select" id="select1" name="adults" required>
+                    <option value="1">Adult 1</option>
+                    <option value="2">Adult 2</option>
+                    <option value="3">Adult 3</option>
+                </select>
+                <label for="select1">Select Adult</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <select class="form-select" id="select2" name="children" required>
+                    <option value="0">No Child</option>
+                    <option value="1">Child 1</option>
+                    <option value="2">Child 2</option>
+                    <option value="3">Child 3</option>
+                </select>
+                <label for="select2">Select Child</label>
+            </div>
+        </div>
+        <div class="form-floating">
+            <select class="form-select" id="select3" name="room_type" required onchange="updateAmount()">
+                <option value="" disabled selected>Select A Room</option>
+                <option value="Standard" data-amount="1500">Standard</option>
+                <option value="Deluxe" data-amount="1800">Deluxe</option>
+                <option value="Suite" data-amount="3500">Suite</option>
+            </select>
+            <label for="select3">Select A Room</label>
+        </div>
+
+        <div class="form-floating">
+            <select class="form-select" id="roomNumber" name="room_number" required>
+                <option value="" disabled selected>Select Room Number</option>
+            </select>
+            <label for="roomNumber">Room Number</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="number" class="form-control" id="amount" name="amount" placeholder="Amount" readonly>
+            <label for="amount">Amount</label>
+        </div>
+
+        <div class="col-12">
+           <div class="form-floating">
+             <textarea class="form-control" id="address" name="address" placeholder="Address" style="height: 100px" required></textarea>
+             <label for="address">Address</label>
+           </div>
+        </div>
+
+
+        <div id="availabilityStatus"></div> <!-- Add a status element for room availability -->
+        <div class="col-12">
+            <button id="submitBtn" class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
+        </div>
+    </div>
+</form>
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const roomNumberSelect = document.getElementById("roomNumber");
+        const availabilityStatus = document.getElementById("availabilityStatus");
+        const amountInput = document.getElementById("amount");
+
+        document.getElementById("select3").addEventListener("change", function() {
+            const roomType = this.value;
+            roomNumberSelect.innerHTML = ""; // Clear existing options
+
+            let roomRangeStart, roomRangeEnd, roomAmount;
+            if (roomType === "Standard") {
+                roomRangeStart = 101;
+                roomRangeEnd = 110;
+                roomAmount = 1500;
+            } else if (roomType === "Deluxe") {
+                roomRangeStart = 201;
+                roomRangeEnd = 210;
+                roomAmount = 1800;
+            } else if (roomType === "Suite") {
+                roomRangeStart = 301;
+                roomRangeEnd = 302;
+                roomAmount = 3500;
+            }
+
+            for (let i = roomRangeStart; i <= roomRangeEnd; i++) {
+                const option = document.createElement("option");
+                option.value = i;
+                option.textContent = "Room " + i;
+                roomNumberSelect.appendChild(option);
+            }
+
+            // Update amount input
+            amountInput.value = roomAmount;
+        });
+
+        const checkoutInput = document.getElementById('checkout');
+        const today = new Date();
+        const yyyy = today.getFullYear();
+        const mm = String(today.getMonth() + 1).padStart(2, '0');
+        const dd = String(today.getDate()).padStart(2, '0');
+        const currentDate = yyyy + '-' + mm + '-' + dd;
+
+        checkoutInput.setAttribute("min", currentDate); // Set minimum date as current date
+
+        checkoutInput.addEventListener('change', function() {
+            const selectedDate = checkoutInput.value;
+            if (selectedDate === currentDate) {
+                availabilityStatus.innerHTML = "Rooms are available for today.";
+            } else {
+                availabilityStatus.innerHTML = "Rooms may be available for the selected date.";
+            }
+        });
+
+        const bookingForm = document.getElementById('bookingForm');
+        const submitBtn = document.getElementById('submitBtn');
+
+        bookingForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+
+            // Send AJAX request to check room availability
+            fetch("{% url 'check_availability' %}", {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.available) {
+                    // If room is available, submit the form
+                    bookingForm.submit();
+                } else {
+                    // If room is not available, display error message
+                    availabilityStatus.innerHTML = "The room is not available for the selected dates.";
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        });
+    });
+</script>
+                    <!-- Include the JavaScript function to call the generate_receipt_view function after successful form submission -->
+
+
+
+{% endblock %}
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Booking End -->
+
+
+
+        <!-- Newsletter Start -->
+        <div class="container newsletter mt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 border rounded p-1">
+                    <div class="border rounded text-center p-1">
+                        <div class="bg-white rounded text-center p-5">
+                            <h4 class="mb-4">Subscribe Our <span class="text-primary text-uppercase">Newsletter</span></h4>
+                            <div class="position-relative mx-auto" style="max-width: 400px;">
+                                <input class="form-control w-100 py-3 ps-4 pe-5" type="text" placeholder="Enter your email">
+                                <button type="button" class="btn btn-primary py-2 px-3 position-absolute top-0 end-0 mt-2 me-2">Submit</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!-- Newsletter Start -->
+        
+
+        <!-- Footer Start -->
+ {% include 'footer.html' %}
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+
+
+
+</body>
+
+</html>
