@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>lotels Dashboard</title>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" /> -->
+
+  <link rel="stylesheet" href="{% static 'mydashboard/assets/css/plugin.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'mydashboard/assets/style.css' %}" />
+
+  <!-- <link rel="icon" type="assets/assets/image/png" sizes="16x16" href="assets/img/favicon.png" /> -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css" />
+  </head>
+  <body>
+    <main class="main-content">
+      <div class="admin">
+        <div class="container-fluid">
+          <div class="row justify-content-center">
+            <div class="col-xxl-3 col-xl-4 col-md-6 col-sm-8">
+              <div class="edit-profile">
+                <div class="edit-profile__logos">
+                  <a href="">
+                    <img class="dark" src="img/logo-dark.png" alt />
+                    <img class="light" src="img/logo-white.png" alt />
+                  </a>
+               {% block content %}
+    <div class="card border-0">
+        <div class="card-header">
+            <div class="edit-profile__title">
+                <h6>Sign in</h6>
+            </div>
+        </div>
+
+    <div class="card-body">
+       <form method="post" action="">
+                  {% csrf_token %}
+
+                  <div class="card-body">
+                    <div class="edit-profile__body">
+                      <div class="form-group mb-25">
+                        <label>Email Address</label>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="name@example.com"
+                          required />
+                      </div>
+                      <div class="form-group mb-15">
+                        <label>Password</label>
+                        <div class="position-relative">
+                          <input id="password-field" type="password" class="form-control" name="password"
+                            placeholder="Password" required />
+                          <div class="uil uil-eye-slash text-lighten fs-15 field-icon toggle-password2"></div>
+                        </div>
+                      </div>
+                      <div
+                        class="admin__button-group button-group d-flex pt-1 justify-content-md-start justify-content-center">
+                        <button type="submit"
+                          class="btn btn-primary btn-default w-100 btn-squared text-capitalize lh-normal px-50 signIn-createBtn">
+                          Sign In
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </form>
+    </div>
+</div>
+{% endblock %}
+
+
+  <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+  <script src="{% static 'mydashboard/assets/js/plugins.min.js' %}"></script>
+  <script src="{% static 'mydashboard/assets/js/script.min.js' %}"></script>
+
+  </body>
+</html>

@@ -10,7 +10,8 @@ urlpatterns = [
     path('', include('sample.urls')),
     path('mydashboard/', include('mydashboard.urls')),
 
-]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+]
 
 
 

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOTELS RESIDENCY</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Other head content -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="shortcut icon" type="image/png" href="{% static 'image/logo_icon1.ico' %}">
+    <style>
+        .my-1 {
+    margin-top: -2.75rem !important;
+    margin-bottom: 0.25rem !important;
+}
+        /* Define A4 size */
+        @page {
+            size: A4 portrait;
+            margin: 0;
+        }
+        /* Set margins for printing */
+        body {
+            margin: 1.27cm; /* 1 inch = 2.54cm, so setting margin to 1.27cm for each side */
+            font-family: Arial, sans-serif;
+        }
+        /* Set card width to fit A4 size */
+        .card {
+            width: 100% ;
+            height: 100%;
+            margin: auto;
+            padding: 20px;
+            box-sizing: border-box; /* Ensure padding is included in width */
+        }
+        /* Set card header style */
+        .card-header {
+            text-align: center;
+        }
+        /* Set card body style */
+        .card-body {
+            padding: 20px;
+        }
+        /* Set card footer style */
+        .card-footer {
+            padding: 20px;
+        }
+        /* Set table style */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        /* Set terms and conditions style */
+        .terms_condition {
+            page-break-inside: avoid;
+        }
+        /* Set address style */
+        .address {
+            font-size: 14px;
+            margin-top: 20px;
+            text-align: right;
+        }
+        @media(max-width:776px){
+        .print{
+            position: absolute;
+            bottom: 80px;
+            right: 229px;
+        .container{
+        margin-bottom:30px
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container my-1">
+        <div class="card shadow">
+            <div class="card-header">
+                <img src="{% static 'image/logo.png' %}" class="logo" alt="Company Logo" width="100">
+                <h3 class="heading">GSTIN:33AADCC0931C1ZG</h3>
+                <h1 class="heading text-center">INVOICE- LOTELS RESIDENCY</h1>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h2 class="h_para">BILLING TO:</h2>
+                        <p>Name: {{ booking.name }}</p>
+                        <p>Email: {{ booking.email }}</p>
+                        <p>Address: {{ booking.address }}</p>
+                        <p>Contact Number: {{ booking.number }}</p>
+                    </div>
+
+                    <div class="col-md-6 col-sm-6 text-md-end">
+                        <h2 class="h_para">INVOICE DETAILS:</h2>
+                        <p>Date Issued: {% now "d-m-y" %}</p>
+                        <p>Check-In Date: {{ booking.checkin_date }}</p>
+                        <p>Check-Out Date: {{ booking.checkout_date }}</p>
+                    </div>
+                </div>
+
+                <div class="table-responsive mt-4">
+                    <table class="table">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Room Type</th>
+                                <th scope="col">Room No</th>
+                                <th scope="col">PRICE</th>
+                                <th scope="col">TOTAL</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{{ booking.room_type }}</td>
+                                <td>{{ booking.room_number }}</td>
+                                <td>{{ booking.amount }}</td>
+                                <td>{{ booking.total_amount }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 col-sm-6">
+                        <h5>BANK DETAILS:</h5>
+                        <p>A/C NAME: Carols Hospitality Pvt Ltd</p>
+                        <p>IFSC: ICICI0000009</p>
+                        <p>ACCOUNT NO: 000905034277</p>
+                        <p>BANK & BRANCH: ICICI NUNGAMBAKKAM</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 text-md-end">
+                        <p>SUBTOTAL: {{ booking.amount }}</p>
+                        <p>TAX (12% GST): {{ booking.gst_amount }}</p>
+                        <p><strong>TOTAL PRICE: ₹{{ booking.total_amount }}</strong></p>
+                    </div>
+                </div>
+
+                <div class="row mb-3  mr-3">
+                    <div class="col-md-4 col-sm-4 terms_condition mt-4"></div>
+                    <div class="col-md-2 col-sm-4"></div>
+                    <div class="col-md-6 col-sm-4 text-end mt-4 address">
+                        <i class="fas fa-map-marker-alt"></i> 6, Jeyachandran 4th Main Rd, Medavakkam, Chennai, Tamil Nadu 600100
+                    </div>
+                     <div class=" text-center">
+                     <button onclick="window.print();" class="btn btn-primary print mt-2">Print</button>
+            </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
+

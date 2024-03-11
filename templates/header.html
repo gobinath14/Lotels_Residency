@@ -4,13 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <title>LOTELS </title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>LOTELS RESIDENCY</title>
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="{% static 'image/favicon.ico' %}" rel="icon">
+
+
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +31,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
 </head>
 
 <body>
@@ -43,66 +44,42 @@
 <!--        </div>-->
         <!-- Spinner End -->
 
-        <!-- Header Start -->
-        <div class="container-fluid bg-dark px-0">
-            <div class="row gx-0">
-                <div class="col-lg-3 bg-dark d-none d-lg-block">
-                    <a href="index.html" class="navbar-brand w-100 h-100 m-0 p-0 d-flex align-items-center justify-content-center">
-                        <h1 class="m-0 text-primary text-uppercase">LOTELS</h1>
-                    </a>
-                </div>
-                <div class="col-lg-9">
-                    <div class="row gx-0 bg-white d-none d-lg-flex">
-                        <div class="col-lg-7 px-5 text-start">
-<!--                            <div class="h-100 d-inline-flex align-items-center py-2 me-4">-->
-<!--                                <i class="fa fa-envelope text-primary me-2"></i>-->
-<!--                                <p class="mb-0"></p>-->
-<!--                            </div>-->
-<!--                            <div class="h-100 d-inline-flex align-items-center py-2">-->
-<!--                                <i class="fa fa-phone-alt text-primary me-2"></i>-->
-<!--                                <p class="mb-0"></p>-->
-<!--                            </div>-->
-                        </div>
-                        <div class="col-lg-5 px-5 text-end">
-                            <div class="d-inline-flex align-items-center py-2">
-                                <a class="me-3" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="me-3" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="me-3" href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a class="me-3" href=""><i class="fab fa-instagram"></i></a>
-                                <a class="" href=""><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
-                        <a href="index.html" class="navbar-brand d-block d-lg-none">
-                            <h1 class="m-0 text-primary text-uppercase">LOTELS</h1>
-                        </a>
-                        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                            <div class="navbar-nav mr-auto py-0">
-                                <a href="/" class="nav-item nav-link active">Home</a>
-                                <a href="/about" class="nav-item nav-link">About</a>
-                                <a href="/services" class="nav-item nav-link">Services</a>
-                                <a href="/room" class="nav-item nav-link">Rooms</a>
-                                <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
-                                    <div class="dropdown-menu rounded-0 m-0">
-                                        <a href="/booking" class="dropdown-item">Booking</a>
-                                        <a href="/teams" class="dropdown-item">Our Team</a>
-                                        <a href="/testimonials" class="dropdown-item">Testimonial</a>
-                                    </div>
-                                </div>
-                                <a href="/contact" class="nav-item nav-link">Contact</a>
-                            </div>
+      <!-- Header Start -->
+<div class="container-fluid bg-dark px-0">
+    <div class="row gx-0">
+        <div class="col-lg-3 bg-dark d-none d-lg-block">
+            <img src="{% static 'image/logo_lans.png' %}" alt="Lotels Logo" width="180" style="margin-left: 50px">
+        </div>
+        <div class="col-lg-9">
+            <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
+                <a href="{% url 'index' %}" class="navbar-brand d-block d-lg-none">
+                    <h1 class="m-0 text-primary text-uppercase">LOTELS</h1>
+                </a>
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between pt-3" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto py-0">
+                        <a href="{% url 'index' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'index' %}active{% endif %}">Home</a>
+                        <a href="{% url 'about' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">About</a>
+                        <a href="{% url 'services' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'services' %}active{% endif %}">Services</a>
+                        <a href="{% url 'room' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'room' %}active{% endif %}">Rooms</a>
+                        <div class="nav-item dropdown {% if request.resolver_match.url_name == 'booking' %}active{% endif %}">
+    <a href="#" class="nav-link dropdown-toggle {% if request.resolver_match.url_name == 'booking' %}active{% endif %}" data-bs-toggle="dropdown">Pages</a>
+    <div class="dropdown-menu rounded-0 m-0">
+        <a href="{% url 'booking' %}" class="dropdown-item {% if request.resolver_match.url_name == 'booking' %}active{% endif %}">Booking</a>
+    </div>
+</div>
 
-                        </div>
-                    </nav>
+                        <a href="{% url 'contact' %}" class="nav-item nav-link {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">Contact</a>
+                    </div>
                 </div>
-            </div>
+            </nav>
         </div>
     </div>
+</div>
+        </div>
+
         <!-- Header End -->
 
 

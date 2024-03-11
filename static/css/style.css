@@ -90,6 +90,10 @@
 .navbar-dark .navbar-nav .nav-link.active {
     color: var(--primary);
 }
+.navbar-dark .navbar-nav .nav-item .nav-link.active {
+    color: var(--primary);
+}
+
 
 @media (max-width: 991.98px) {
     .navbar-dark .navbar-nav .nav-link  {
@@ -191,7 +195,7 @@
 
 /*** Service ***/
 .service-item {
-    height: 320px;
+    height: 520px;
     padding: 30px;
     display: flex;
     flex-direction: column;
@@ -208,8 +212,8 @@
 
 .service-item .service-icon {
     margin: 0 auto 30px auto;
-    width: 65px;
-    height: 65px;
+    width: 300px;
+    height: 300px;
     transition: .5s;
 }
 

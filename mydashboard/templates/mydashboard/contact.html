@@ -1,0 +1,378 @@
+
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>lotels Dashboard</title>
+  <!-- <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&display=swap" rel="stylesheet" /> -->
+
+  <link rel="stylesheet" href="{% static 'mydashboard/assets/css/plugin.min.css' %}" />
+  <link rel="stylesheet" href="{% static 'mydashboard/assets/style.css' %}" />
+
+  <!-- <link rel="icon" type="assets/assets/image/png" sizes="16x16" href="assets/img/favicon.png" /> -->
+
+  <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css' %}" />
+
+    <style>
+        .dm-select select{
+            display:none;
+        }
+        .dm-select:after{
+            display:none;
+        }
+        #filter-form-container label{
+            color:white;
+        }
+        ::-webkit-scrollbar-track {
+            display:none;
+        }
+        .example::-webkit-scrollbar {
+    display: none;
+}
+    </style>
+</head>
+
+<body class="layout-light side-menu">
+  <div class="mobile-search">
+    <form action="/" class="search-form">
+      <img src="{% static 'mydashboard/assets/img/svg/search.svg' %}" alt="search" class="svg" />
+      <input class="form-control me-sm-2 box-shadow-none" type="search" placeholder="Search..." aria-label="Search" />
+    </form>
+  </div>
+  <div class="mobile-author-actions"></div>
+  <header class="header-top">
+    <nav class="navbar navbar-light">
+      <div class="navbar-left">
+        <div class="logo-area">
+          <a class="navbar-brand" href="index.html">
+            <img class="dark" src="{% static 'mydashboard/assets/img/logo/blk_trans.png' %}" alt="logo" />
+<!--            <img class="light" src="{% static 'mydashboard/assets/img/logo-white.png' %}" alt="logo" />-->
+          </a>
+          <a href="#" class="sidebar-toggle">
+            <img class="svg" src="{% static 'mydashboard/assets/img/svg/align-center-alt.svg' %}" alt="img" /></a>
+        </div>
+      </div>
+
+      <div class="navbar-right">
+        <ul class="navbar-right__menu">
+
+          <li class="nav-author">
+            <div class="dropdown-custom">
+              <a href="javascript:;" class="nav-item-toggle"><img src="{% static 'mydashboard/assets/img/author-nav.jpg' %}" alt
+                  class="rounded-circle" />
+                <span class="nav-item__title">HR<i class="las la-angle-down nav-item__arrow"></i></span>
+              </a>
+              <div class="dropdown-parent-wrapper">
+                <div class="dropdown-wrapper">
+                  <div class="nav-author__info">
+                    <div class="author-img">
+                      <img src="{% static 'mydashboard/assets/img/author-nav.jpg' %}" alt class="rounded-circle" />
+                    </div>
+
+                  </div>
+                  <div class="nav-author__options">
+                    <ul>
+                      <li>
+                        <a href> <i class="uil uil-user"></i> Profile</a>
+                      </li>
+                    </ul>
+                    <a href class="nav-author__signout">
+                      <i class="uil uil-sign-out-alt"></i> Sign Out</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="navbar-right__mobileAction d-md-none">
+          <a href="#" class="btn-search">
+            <img src="{% static 'mydashboard/assets/img/svg/search.svg' %}" alt="search" class="svg feather-search" />
+            <img src="{% static 'mydashboard/assets/img/svg/x.svg' %}" alt="x" class="svg feather-x" /></a>
+          <a href="#" class="btn-author-action">
+            <img class="svg" src="{% static 'mydashboard/assets/img/svg/more-vertical.svg' %}" alt="more-vertical" /></a>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <main class="main-content">
+    <div class="sidebar-wrapper">
+      <div class="sidebar sidebar-collapse" id="sidebar">
+        <div class="sidebar__menu-group">
+          <ul class="sidebar_nav ms-2">
+            <!-- <li class="mt-2" style="background-color: #f4f5f7;border-radius: 70px 0px 0px 70px;"><a
+                href="cadidate_details.html" style="color: blueviolet;"><span class="nav-icon uil uil-create-dashboard"
+                  style="color: blueviolet;"></span>Cadidate Dashboard</a></li>
+            <li class="mt-2"><a href="selected_person.html"> <span class="nav-icon uil uil-users-alt"
+                  style="color: black;"></span>Selected Person</a></li>
+            <li><a href="waiting_list.html"><span class="nav-icon uil uil-exchange" style="color: black;"></span>Waiting
+                List</a></li>
+            <li><a href="rejected_person.html"><span class="nav-icon uil uil-question-circle"
+                  style="color: black;"></span>rejected Person</a></li> -->
+
+                  <li style="border-radius: 70px 0px 0px 70px;">
+                    <a href="{% url 'mydashboard_index' %}">
+                        <span class="nav-icon uil uil-create-dashboard" style="color: #123597;"></span>
+                         <span class="menu-text" style="color: #fff;">index</span>
+                    </a>
+                </li>
+
+               <li style="border-radius: 70px 0px 0px 70px;">
+                    <a href="{% url 'mydashboard_contact' %}">
+
+                        <span class="nav-icon uil uil-create-dashboard" style="color: #123597;"></span>
+                         <span class="menu-text" style="color: #fff;">Contact</span>
+                    </a>
+                </li>
+          </ul>
+
+        </div>
+      </div>
+    </div>
+    <div class="contents">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-lg-12 mb-30">
+            <div class="card mt-30">
+              <div class="card-body">
+                <div class="userDatatable adv-table-table global-shadow border-light-0 w-100 adv-table">
+                  <div class="table-responsive">
+                    <div class="adv-table-table__header">
+                      <div class="text-center">
+                        <h4 class="text-center"> lotels_Dashboard</h4>
+                      </div>
+
+                      <div class="adv-table-table__button">
+                        <div class="dropdown">
+                          <a class="btn btn-primary dropdown-toggle dm-select" href="#" role="button"
+                            id="dropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Export
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">copy</a>
+                            <a class="dropdown-item" href="#">csv</a>
+                            <a class="dropdown-item" href="#">print</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div id="filter-form-container"></div>
+                    <table class="table mb-0 table-borderless adv-table" data-sorting="true"
+                      data-filter-container="#filter-form-container" data-paging-current="1"
+                      data-paging-position="right" data-paging-size="10">
+                      <thead>
+    <tr class="userDatatable-header">
+        <th>
+            <span class="userDatatable-title">Name</span>
+        </th>
+        <th>
+            <span class="userDatatable-title">Email</span>
+        </th>
+        <th>
+            <span class="userDatatable-title">Subject</span>
+        </th>
+        <th>
+            <span class="userDatatable-title">Messages</span>
+        </th>
+
+
+
+    </tr>
+</thead>
+
+                      <tbody>
+     {% for contact in contacts %}
+    <tr>
+        <td>
+            <div class="userDatatable-content">{{contact.name  }}</div>
+        </td>
+        <td>
+            <div class="userDatatable-content">{{ contact.email}}</div>
+        </td>
+        <td>
+            <div class="userDatatable-content">{{  contact.subject  }}</div>
+        </td>
+        <td>
+            <div class="userDatatable-content">{{ contact.message }}</div>
+        </td>
+
+
+
+    </tr>
+    {% endfor %}
+</tbody>
+
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- view modal start-->
+    <div class="modal-view modal fade show" id="modal-view" tabindex="-1" role="dialog" aria-hidden="true">
+      <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content modal-bg-white">
+          <div class="modal-body">
+              <div class="row">
+                  <div class="col-md-3 d-block">
+                      <img src="{% static 'mydashboard/assets/img/165.png' %}"  alt="" >
+                  </div>
+                  <div class="col-md-3">
+                    <img src="{% static 'mydashboard/assets/img/165.png' %}" alt="" >
+                  </div>
+                  <div class="col-md-3">
+                    <img src="{% static 'mydashboard/assets/img/165.png' %}" alt="" >
+                  </div>
+                  <div class="col-md-3">
+                    <img src="{% static 'mydashboard/assets/img/165.png' %}" alt="" >
+                  </div>
+              </div>
+              <div class="row mt-4">
+                  <div class="col-md-3 d-block">
+                      <img src="{% static 'mydashboard/assets/img/165.png' %}"  alt="" >
+                  </div>
+                  <div class="col-md-3">
+                    <img src="{% static 'mydashboard/assets/img/165.png' %}" alt="" >
+                  </div>
+                  <div class="col-md-3">
+                    <img src="{% static 'mydashboard/assets/img/165.png' %}" alt="" >
+                  </div>
+                  <div class="col-md-3">
+                    <img src="{% static 'mydashboard/assets/img/165.png' %}" alt="" >
+                  </div>
+              </div>
+          <div class="modal-footer mt-3">
+            <button type="button" class="btn btn-secondary btn-sm " data-bs-dismiss="modal">
+              download
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- view modal end-->
+
+    <footer class="footer-wrapper">
+      <div class="footer-wrapper__inside">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="footer-copyright">
+                <p><span>© 2023</span><a href="#">M7crop Tech Team</a></p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="footer-menu text-end">
+                <ul>
+                  <li>
+                    <a href="#">About</a>
+                  </li>
+                  <li>
+                    <a href="#">Team</a>
+                  </li>
+                  <li>
+                    <a href="#">Contact</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </main>
+  <div id="overlayer">
+    <div class="loader-overlay">
+      <div class="dm-spin-dots spin-lg">
+        <span class="spin-dot badge-dot dot-primary"></span>
+        <span class="spin-dot badge-dot dot-primary"></span>
+        <span class="spin-dot badge-dot dot-primary"></span>
+        <span class="spin-dot badge-dot dot-primary"></span>
+      </div>
+    </div>
+  </div>
+  <div class="overlay-dark-sidebar"></div>
+  <div class="customizer-overlay"></div>
+  <div class="customizer-wrapper">
+    <div class="customizer">
+      <div class="customizer__head">
+        <h4 class="customizer__title">Customizer</h4>
+        <span class="customizer__sub-title">Customize your overview page layout</span>
+        <a href="#" class="customizer-close">
+          <img class="svg" src="{% static 'mydashboard/assets/img/svg/x2.svg' %}" alt />
+        </a>
+      </div>
+      <div class="customizer__body">
+        <div class="customizer__single">
+          <h4>Layout Type</h4>
+          <ul class="customizer-list d-flex layout">
+            <li class="customizer-list__item">
+              <a href="../ltr" class="active">
+                <img src="assets/img/ltr.png" alt />
+                <i class="fa fa-check-circle"></i>
+              </a>
+            </li>
+            <li class="customizer-list__item">
+              <a href="../rtl">
+                <img src="{% static 'mydashboard/assets/img/rtl.png' %}" alt />
+                <i class="fa fa-check-circle"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="customizer__single">
+          <h4>Sidebar Type</h4>
+          <ul class="customizer-list d-flex l_sidebar">
+            <li class="customizer-list__item">
+              <a href="#" data-layout="light" class="dark-mode-toggle active">
+                <img src="assets/img/light.png" alt />
+                <i class="fa fa-check-circle"></i>
+              </a>
+            </li>
+            <li class="customizer-list__item">
+              <a href="#" data-layout="dark" class="dark-mode-toggle">
+                <img src="{% static 'mydashboard/assets/img/dark.png' %}" alt />
+                <i class="fa fa-check-circle"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="customizer__single">
+          <h4>Navbar Type</h4>
+          <ul class="customizer-list d-flex l_navbar">
+            <li class="customizer-list__item">
+              <a href="#" data-layout="side" class="active">
+                <img src="{% static 'mydashboard/assets/img/side.png' %}" alt />
+                <i class="fa fa-check-circle"></i>
+              </a>
+            </li>
+            <li class="customizer-list__item top">
+              <a href="#" data-layout="top">
+                <img src="assimg/top.png" alt />
+                <i class="fa fa-check-circle"></i>
+              </a>
+            </li>
+            <li class="colors"></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script> -->
+  <script src="{% static 'mydashboard/assets/js/plugins.min.js' %}"></script>
+  <script src="{% static 'mydashboard/assets/js/script.min.js' %}"></script>
+</body>
+
+</html>

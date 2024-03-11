@@ -16,6 +16,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STATIC_DIR = os.path.join(BASE_DIR, 'static')
 TEMPLATE_DIR = Path(BASE_DIR, "templates")
 
+
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
@@ -29,7 +31,7 @@ SECRET_KEY = 'django-insecure-*r112diqbnn!y-91(^!rsw90bnau!0o^+_$#ii&3i3(#ot!a3g
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["00e7-115-97-253-131.ngrok-free.app","127.0.0.1"]
 
 
 # Application definition
@@ -112,6 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
+
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -120,6 +123,9 @@ USE_I18N = True
 
 USE_TZ = True
 
+MERCHANT_KEY = "TZM13IBYR"
+SALT = "5MS218GMW"
+ENV = "test"
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

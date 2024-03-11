@@ -3,29 +3,23 @@
 <html lang="en">
 
 <head>
-
+<link rel="shortcut icon" type="image/png" href="{% static 'image/logo_icon1.ico' %}">
 </head>
 
 <body>
 
-        <!-- Spinner Start -->
 
-        <!-- Spinner End -->
-
-        <!-- Header Start -->
-
-        <!-- Header End -->
      {% include 'header.html' %}
 
         <!-- Page Header Start -->
-        <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'image/carousel-1.jpg' %});">
+        <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'image/carousel.jpg' %});">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Contact</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'booking' %}">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Contact</li>
                         </ol>
                     </nav>
@@ -64,45 +58,46 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col-md-6 wow fadeIn" data-wow-delay="0.1s">
-                        <iframe class="position-relative rounded w-100 h-100"
-                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3001156.4288297426!2d-78.01371936852176!3d42.72876761954724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4ccc4bf0f123a5a9%3A0xddcfc6c1de189567!2sNew%20York%2C%20USA!5e0!3m2!1sen!2sbd!4v1603794290143!5m2!1sen!2sbd"
-                            frameborder="0" style="min-height: 350px; border:0;" allowfullscreen="" aria-hidden="false"
-                            tabindex="0"></iframe>
+
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d124440.4830814574!2d80.12011994265676!3d12.92281378405013!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a525e9f971fae49%3A0x4447fd43a44ba277!2sHotel%20Lotels%20Serviced%20Apartment!5e0!3m2!1sen!2sin!4v1708608048092!5m2!1sen!2sin" width="600" style="min-height: 370px; border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>
                     <div class="col-md-6">
                         <div class="wow fadeInUp" data-wow-delay="0.2s">
-                            <form>
-                                <div class="row g-3">
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                                            <label for="name">Your Name</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="form-floating">
-                                            <input type="email" class="form-control" id="email" placeholder="Your Email">
-                                            <label for="email">Your Email</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                            <label for="subject">Subject</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <div class="form-floating">
-                                            <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
-                                            <label for="message">Message</label>
-                                        </div>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
-                                    </div>
-                                </div>
-                            </form>
+                           <form action="{% url 'contact' %}" method="post">
+    {% csrf_token %}
+    <div class="row g-3">
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="name" name="name" placeholder="Your Name" required>
+                <label for="name">Your Name</label>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="email" name="email" placeholder="Your Email" required>
+                <label for="email">Your Email</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                <label for="subject">Subject</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <div class="form-floating">
+                <textarea class="form-control" placeholder="Leave a message here" id="message" name="message" style="height: 150px" required></textarea>
+                <label for="message">Message</label>
+            </div>
+        </div>
+        <div class="col-12">
+            <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+        </div>
+    </div>
+</form>
+
                         </div>
                     </div>
                 </div>
@@ -128,7 +123,7 @@
             </div>
         </div>
         <!-- Newsletter Start -->
-        
+
 
         <!-- Footer Start -->
 
