@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-<!--    -->
+<link rel="shortcut icon" type="image/png" href="{% static 'image/logo_icon1.ico' %}">
 </head>
 
 <body>
@@ -16,14 +16,14 @@
        {% include 'header.html' %}
 
         <!-- Page Header Start -->
-        <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'image/carousel-1.jpg' %});">
+            <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'image/carousel.JPG' %});">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
                     <h1 class="display-3 text-white mb-3 animated slideInDown">About Us</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'booking' %}">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">About</li>
                         </ol>
                     </nav>
@@ -37,21 +37,20 @@
 
         <!-- Booking End -->
 
-
-        <!-- About Start -->
+ <!-- About Start -->
         <div class="container-xxl py-5">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6">
                         <h6 class="section-title text-start text-primary text-uppercase">About Us</h6>
-                        <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">LOTELS </span></h1>
+                        <h1 class="mb-4">Welcome to <span class="text-primary text-uppercase">LOTELS RESIDENCY</span></h1>
                         <p class="mb-4"></p>
                         <div class="row g-3 pb-4">
     <div class="col-sm-4 wow fadeIn" data-wow-delay="0.1s">
         <div class="border rounded p-1">
             <div class="border rounded text-center p-4">
                 <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                <h2 class="mb-1" data-toggle="counter-up">{{ available_standard_rooms }}</h2>
+                <h2 class="mb-1" data-toggle="counter-up">{{available_standard_rooms}}</h2>
                 <p class="mb-0">Standard rooms</p>
             </div>
         </div>
@@ -69,27 +68,27 @@
         <div class="border rounded p-1">
             <div class="border rounded text-center p-4">
                 <i class="fa fa-hotel fa-2x text-primary mb-2"></i>
-                <h2 class="mb-1" data-toggle="counter-up">{{ available_suite_rooms}}</h2>
+                <h2 class="mb-1" data-toggle="counter-up">{{available_suite_rooms}}</h2>
                 <p class="mb-0">Suite rooms</p>
             </div>
         </div>
     </div>
 </div>
-                        <a class="btn btn-sm btn-dark rounded py-2 px-4" href="{% url 'booking' %}">Book Now</a>
+                        <a class="btn btn-primary py-3 px-5 mt-2" href="{% url 'booking' %}">Book Now</a>
                     </div>
                     <div class="col-lg-6">
                         <div class="row g-3">
                             <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src= "{% static 'image/about-1.jpg' %}" style="margin-top: 25%;">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src= "{% static 'image/about-2.JPG' %}" style="margin-top: 25%;">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'image/about-2.jpg' %}">
+                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'image/about-1.JPG' %}">
                             </div>
                             <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'image/about-3.jpg' %}">
+                                <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'image/about-4.JPG' %}">
                             </div>
                             <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'image/about-4.jpg' %}">
+                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'image/about-33.JPG' %}">
                             </div>
                         </div>
                     </div>
@@ -99,82 +98,58 @@
         <!-- About End -->
 
 
-<!--        &lt;!&ndash; Team Start &ndash;&gt;-->
-<!--           <div class="container-xxl py-5">-->
-<!--            <div class="container">-->
-<!--                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">-->
-<!--                    <h6 class="section-title text-center text-primary text-uppercase">Our Team</h6>-->
-<!--                    <h1 class="mb-5">Explore Our <span class="text-primary text-uppercase">Staffs</span></h1>-->
-<!--                </div>-->
-<!--                <div class="row g-4">-->
-<!--                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">-->
-<!--                        <div class="rounded shadow overflow-hidden">-->
-<!--                            <div class="position-relative">-->
-<!--                                ]<img class="img-fluid" src="{% static 'image/team-1.jpg' %}" alt="">-->
-<!--                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="text-center p-4 mt-3">-->
-<!--                                <h5 class="fw-bold mb-0">Full Name</h5>-->
-<!--                                <small>Designation</small>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">-->
-<!--                        <div class="rounded shadow overflow-hidden">-->
-<!--                            <div class="position-relative">-->
-<!--                                <img class="img-fluid" src="{% static 'image/team-2.jpg' %}" alt="">-->
-<!--                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="text-center p-4 mt-3">-->
-<!--                                <h5 class="fw-bold mb-0">Full Name</h5>-->
-<!--                                <small>Designation</small>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">-->
-<!--                        <div class="rounded shadow overflow-hidden">-->
-<!--                            <div class="position-relative">-->
-<!--                                <img class="img-fluid" src="{% static 'image/team-3.jpg' %}" alt="">-->
-<!--                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="text-center p-4 mt-3">-->
-<!--                                <h5 class="fw-bold mb-0">Full Name</h5>-->
-<!--                                <small>Designation</small>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">-->
-<!--                        <div class="rounded shadow overflow-hidden">-->
-<!--                            <div class="position-relative">-->
-<!--                                <img class="img-fluid" src="{% static 'image/team-4.jpg' %}" alt="">-->
-<!--                                <div class="position-absolute start-50 top-100 translate-middle d-flex align-items-center">-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>-->
-<!--                                    <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                            <div class="text-center p-4 mt-3">-->
-<!--                                <h5 class="fw-bold mb-0">Full Name</h5>-->
-<!--                                <small>Designation</small>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--        &lt;!&ndash; Team End &ndash;&gt;-->
+
+       <!-- Room Status Start -->
+<div class="container-xxl py-5">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Standard Room Status -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp text-center" data-wow-delay="0.1s">
+                <div class="room-status-item shadow rounded overflow-hidden">
+                    <img class="img-fluid" src="{% static 'image/roomst-1.JPG' %}" alt="Standard Room Image">
+                    <h3 class="text-center pt-4">Standard Room</h3>
+                    <p class="text-center px-3">Our Standard Rooms blend comfort with value, offering a cozy haven with all the essentials for a restful stay. Perfect for budget-conscious travelers seeking a blend of convenience and comfort.</p>
+                    <!-- Real-time status update -->
+                    <h5 class="text-center text-success pt-4">Currently Available</h5>
+                    <div class="p-4">
+                        <a class="btn btn-primary rounded-pill px-4 py-2" href="{% url 'booking' %}">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Deluxe Room Status -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp text-center" data-wow-delay="0.3s">
+                <div class="room-status-item shadow rounded overflow-hidden">
+                    <img class="img-fluid" src="{% static 'image/roomdu-2.JPG' %}" alt="Deluxe Room Image">
+                    <h3 class="text-center pt-4">Deluxe Room</h3>
+                    <p class="text-center px-3">Step into our Deluxe Rooms and experience elevated comfort and style. These rooms feature luxurious furnishings, enhanced amenities, and scenic views, making them perfect for travelers seeking a touch of luxury.</p>
+                    <!-- Real-time status update -->
+                    <h5 class="text-center text-warning">Currently Available</h5>
+                    <div class="p-4">
+                        <a class="btn btn-primary rounded-pill px-4 py-2" href="{% url 'booking' %}">Book Now</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Suite Room Status -->
+            <div class="col-lg-4 col-md-6 wow fadeInUp text-center" data-wow-delay="0.6s">
+                <div class="room-status-item shadow rounded overflow-hidden">
+                    <img class="img-fluid" src="{% static 'image/roomsu-3.JPG' %}" alt="Suite Room Image">
+                    <h3 class="text-center pt-4">Suite Room</h3>
+                    <p class="text-center px-3">Indulge in the ultimate luxury and space with our Suite Rooms, offering separate living areas, exquisite décor, and panoramic views. Ideal for guests desiring unparalleled comfort and exclusivity.</p>
+                    <!-- Real-time status update -->
+                    <h5 class="text-center text-danger pt-4">Currently Available</h5>
+                    <div class="p-4">
+                        <a class="btn btn-primary rounded-pill px-4 py-2 disabled" href="{% url 'booking' %}">book now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Room Status End -->
+
+
 
 
         <!-- Newsletter Start -->
@@ -201,8 +176,7 @@
         <!-- Footer End -->
 
 
-        <!-- Back to Top -->
-       >
+
 
     <!-- Template Javascript -->
 

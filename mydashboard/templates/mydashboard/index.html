@@ -16,7 +16,34 @@
 
   <!-- <link rel="icon" type="assets/assets/image/png" sizes="16x16" href="assets/img/favicon.png" /> -->
 
-  <link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css' %}" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@iconscout/unicons@4.0.8/css/line.min.css" />
+
+    <style>
+        .dm-select select{
+            display:none;
+        }
+        .dm-select:after{
+            display:none;
+        }
+        #filter-form-container label{
+            color:white;
+        }
+        ::-webkit-scrollbar-track {
+            display:none;
+        }
+        .example::-webkit-scrollbar {
+            display: none;
+        }
+        .card_box1,.card_box2,.card_box3{
+         background: #6190E8;  /* fallback for old browsers */
+         background: -webkit-linear-gradient(to right, #A7BFE8, #6190E8);  /* Chrome 10-25, Safari 5.1-6 */
+         background: linear-gradient(to right, #A7BFE8, #6190E8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+        }
+        .card_box1 p , .card_box1 h1 , .card_box2 p , .card_box2 h1 , .card_box3 p , .card_box3 h1{
+            color:white;
+        }
+    </style>
 </head>
 
 <body class="layout-light side-menu">
@@ -32,8 +59,8 @@
       <div class="navbar-left">
         <div class="logo-area">
           <a class="navbar-brand" href="index.html">
-<!--            <img class="dark" src="{% static 'mydashboard/assets/img/logo/blk_trans.png' %}" alt="logo" />-->
-            <img class="light" src="{% static 'mydashboard/assets/img/logo-white.png' %}" alt="logo" />
+            <img class="dark" src="{% static 'mydashboard/assets/img/logo/blk_trans.png' %}" alt="logo" />
+<!--            <img class="light" src="{% static 'mydashboard/assets/img/logo-white.png' %}" alt="logo" />-->
           </a>
           <a href="#" class="sidebar-toggle">
             <img class="svg" src="{% static 'mydashboard/assets/img/svg/align-center-alt.svg' %}" alt="img" /></a>
@@ -55,10 +82,7 @@
                     <div class="author-img">
                       <img src="{% static 'mydashboard/assets/img/author-nav.jpg' %}" alt class="rounded-circle" />
                     </div>
-                    <div>
-                      <h6>HR Portal</h6>
-                      <span>Thaagam</span>
-                    </div>
+
                   </div>
                   <div class="nav-author__options">
                     <ul>
@@ -66,7 +90,7 @@
                         <a href> <i class="uil uil-user"></i> Profile</a>
                       </li>
                     </ul>
-                    <a href class="nav-author__signout">
+                    <a href="{% url 'logout' %}" class="">
                       <i class="uil uil-sign-out-alt"></i> Sign Out</a>
                   </div>
                 </div>
@@ -99,13 +123,21 @@
                 List</a></li>
             <li><a href="rejected_person.html"><span class="nav-icon uil uil-question-circle"
                   style="color: black;"></span>rejected Person</a></li> -->
-                  <li style="background-color: #f4f5f7;border-radius: 70px 0px 0px 70px;">
-                    <a>
+
+                  <li style="border-radius: 70px 0px 0px 70px;">
+                    <a href="{% url 'mydashboard_index' %}">
                         <span class="nav-icon uil uil-create-dashboard" style="color: #123597;"></span>
-                         <span class="menu-text" style="color: #123597;">Dashboard</span>
+                         <span class="menu-text" style="color: #fff;">index</span>
                     </a>
                 </li>
 
+               <li style="border-radius: 70px 0px 0px 70px;">
+                    <a href="{% url 'mydashboard_contact' %}">
+
+                        <span class="nav-icon uil uil-create-dashboard" style="color: #123597;"></span>
+                         <span class="menu-text" style="color: #fff;">Contact</span>
+                    </a>
+                </li>
           </ul>
 
         </div>
@@ -114,6 +146,41 @@
     <div class="contents">
       <div class="container-fluid">
         <div class="row">
+            <div class="col-lg-4">
+    <div class="card mt-30 card_box1">
+        <div class="card-body">
+            <p class="text-center">Today Total</p>
+            <!-- Use the dynamic total here -->
+            <h1 class="text-center">{{total_amount}}</h1>
+        </div>
+    </div>
+</div>
+
+              <div class="col-lg-4">
+                 <div class="card mt-30 card_box2">
+                     <div class="card-body">
+                         <p class="text-center">gpay</p>
+                         <h1 class="text-center">{{ total_gpay }}</h1>
+                     </div>
+                 </div>
+             </div>
+              <div class="col-lg-4">
+                 <div class="card mt-30 card_box3">
+                     <div class="card-body">
+                         <p class="text-center">cash</p>
+                         <h1 class="text-center">{{ total_cash }}</h1>
+                     </div>
+                 </div>
+             </div>
+            <div class="col-lg-4">
+    <div class="card mt-30 card_box3"> <!-- Adjust the card_box class as needed -->
+        <div class="card-body">
+            <p class="text-center">Card</p>
+            <h1 class="text-center">{{ total_card }}</h1>
+        </div>
+    </div>
+</div>
+
           <div class="col-lg-12 mb-30">
             <div class="card mt-30">
               <div class="card-body">
@@ -180,9 +247,15 @@
         <th>
             <span class="userDatatable-title">Number</span>
         </th>
-         <th>
-            <span class="userDatatable-title">Receipt</span>
+        <th>
+            <span class="userDatatable-title">status</span>
         </th>
+         <th>
+            <span class="userDatatable-title">select method</span>
+        </th>
+<!--        <th>-->
+<!--            <span class="userDatatable-title">direct walkin</span>-->
+<!--        </th>-->
 
 
     </tr>
@@ -216,7 +289,7 @@
             <div class="userDatatable-content">{{ booking.room_type }}</div>
         </td>
         <td>
-            <div class="userDatatable-content">{{ booking.amount }}</div>
+            <div class="userDatatable-content">{{ booking.total_amount }}</div>
         </td>
         <td>
             <div class="userDatatable-content">{{ booking.room_number }}</div>
@@ -228,12 +301,14 @@
             <div class="userDatatable-content">{{ booking.number }}</div>
         </td>
          <td>
-            {% if booking.receipt_image %}
-            <img src="{{ booking.receipt_image.url }}" width="100" alt="Receipt">
-            {% else %}
-            No receipt available
-            {% endif %}
+            <div class="userDatatable-content">{{ booking.status }}</div>
         </td>
+         <td>
+            <div class="userDatatable-content">{{ booking.select_method}}</div>
+        </td>
+<!--        <td>-->
+<!--            <div class="userDatatable-content">{{ booking.payment_method}}</div>-->
+<!--        </td>-->
 
 
     </tr>

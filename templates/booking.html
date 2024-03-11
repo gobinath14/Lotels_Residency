@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-
+<link rel="shortcut icon" type="image/png" href="{% static 'image/logo_icon1.ico' %}">
 </head>
 
 <body>
@@ -18,14 +18,14 @@
 
     {% include 'header.html' %}
         <!-- Page Header Start -->
-        <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'image/carousel-1.jpg' %});">
+        <div class="container-fluid page-header mb-5 p-0" style="background-image: url({% static 'image/carousel.JPG' %});">
             <div class="container-fluid page-header-inner py-5">
                 <div class="container text-center pb-5">
                     <h1 class="display-3 text-white mb-3 animated slideInDown">Booking</h1>
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb justify-content-center text-uppercase">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'index' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'booking' %}">Pages</a></li>
                             <li class="breadcrumb-item text-white active" aria-current="page">Booking</li>
                         </ol>
                     </nav>
@@ -36,39 +36,10 @@
 
 
 
-
-
-       <!-- Booking Start -->
-<!--<div class="container-xxl py-5">-->
-<!--    <div class="container">-->
-<!--        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">-->
-<!--            <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>-->
-<!--            <h1 class="mb-5">Book A <span class="text-primary text-uppercase">Lotels Room</span></h1>-->
-<!--        </div>-->
-<!--        <div class="row g-5">-->
-<!--            <div class="col-lg-6">-->
-<!--                <div class="row g-3">-->
-<!--                    <div class="col-6 text-end">-->
-<!--                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src= "{% static 'image/about-1.jpg' %}" style="margin-top: 25%;">-->
-<!--                    </div>-->
-<!--                    <div class="col-6 text-start">-->
-<!--                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'image/about-2.jpg' %}">-->
-<!--                    </div>-->
-<!--                    <div class="col-6 text-end">-->
-<!--                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'image/about-3.jpg' %}">-->
-<!--                    </div>-->
-<!--                    <div class="col-6 text-start">-->
-<!--                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'image/about-4.jpg' %}">-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-lg-6">-->
-<!--                <div class="wow fadeInUp" data-wow-delay="0.2s">-->
-<!--                   &lt;!&ndash; booking_form.html &ndash;&gt;-->
-
  <!-- Booking Start -->
 <div class="container-xxl py-5">
     <div class="container">
+
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
             <h6 class="section-title text-center text-primary text-uppercase">Room Booking</h6>
             <h1 class="mb-5">Book A <span class="text-primary text-uppercase">Lotels Room</span></h1>
@@ -77,16 +48,16 @@
             <div class="col-lg-6">
                 <div class="row g-3">
                     <div class="col-6 text-end">
-                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src= "{% static 'image/about-1.jpg' %}" style="margin-top: 25%;">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.1s" src= "{% static 'image/about-2.JPG' %}" style="margin-top: 25%;">
                     </div>
                     <div class="col-6 text-start">
-                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'image/about-2.jpg' %}">
+                        <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.3s" src="{% static 'image/about-1.JPG' %}">
                     </div>
                     <div class="col-6 text-end">
-                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'image/about-3.jpg' %}">
+                        <img class="img-fluid rounded w-50 wow zoomIn" data-wow-delay="0.5s" src="{% static 'image/about-4.JPG' %}">
                     </div>
                     <div class="col-6 text-start">
-                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'image/about-4.jpg' %}">
+                        <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.7s" src="{% static 'image/about-33.JPG' %}">
                     </div>
                 </div>
             </div>
@@ -149,6 +120,37 @@
                 <label for="select2">Select Child</label>
             </div>
         </div>
+        <div class="col-md-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="total_days" name="total_days">
+                <label for="total_days">Todal Day's</label>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div class="form-floating">
+                <select class="form-select" id="select_method" name="select_method" required>
+
+<!--                    <option value="direct_walk">Direct Walk</option>-->
+                    <option value="website">Website</option>
+
+                </select>
+                <label for="select1">Select Walkin</label>
+            </div>
+        </div>
+        <div class="col-md-12"id="p-mode-1" style="display:none" >
+            <div class="form-floating">
+
+                <select class="form-select" id="payment_method" name="payment_method" required>
+                    <option value="select_pay_mode"></option>
+                    <option value="cash">Cash</option>
+                    <option value="google_pay">Google Pay</option>
+                     <option value="card">Card</option>
+
+                </select>
+                <label for="select1">Select Payment Method</label>
+              </div>
+
+        </div>
         <div class="form-floating">
             <select class="form-select" id="select3" name="room_type" required onchange="updateAmount()">
                 <option value="" disabled selected>Select A Room</option>
@@ -161,14 +163,67 @@
 
         <div class="form-floating">
             <select class="form-select" id="roomNumber" name="room_number" required>
-                <option value="" disabled selected>Select Room Number</option>
+                <option value="" >Select Room Number</option>
+
+                <optgroup  id="standard_option" style="display: none;">
+                    <option value="101">Room 101</option>
+                    <option value="102">Room 103</option>
+                    <option value="108">Room 108</option>
+                    <option value="109">Room 109</option>
+                    <option value="110">Room 110</option>
+                    <option value="201">Room 201</option>
+                    <option value="202">Room 202</option>
+                    <option value="203">Room 203</option>
+                    <option value="210">Room 210</option>
+                    <option value="212">Room 212</option>
+                    <option value="301">Room 301</option>
+                    <option value="302">Room 302</option>
+                    <option value="303">Room 303</option>
+                    <option value="310">Room 310</option>
+                    <option value="311">Room 311</option>
+                    <option value="312">Room 312</option>
+                </optgroup>
+                <optgroup  id="deluxe_option" style="display: none;">
+                    <option value="104">Room 104</option>
+                    <option value="108">Room 108</option>
+                    <option value="204">Room 204</option>
+                    <option value="205">Room 205</option>
+                    <option value="206">Room 206</option>
+                    <option value="207">Room 207</option>
+                    <option value="208">Room 208</option>
+                    <option value="209">Room 209</option>
+                    <option value="304">Room 304</option>
+                    <option value="305">Room 305</option>
+                    <option value="306">Room 306</option>
+                    <option value="307">Room 307</option>
+                    <option value="308">Room 308</option>
+                    <option value="309">Room 309</option>
+                </optgroup>
+                <optgroup  id="suite_option" style="display: none;">
+                    <option value="105">Room 105</option>
+                    <option value="106">Room 106</option>
+
+                </optgroup>
             </select>
             <label for="roomNumber">Room Number</label>
         </div>
 
+         <div class="form-floating error_mgs" style="display:none">
+            <div class="alert alert-danger py-2 text-center">The selected room is not available for the chosen dates other room will be select.</div>
+        </div>
+
+
         <div class="form-floating">
             <input type="number" class="form-control" id="amount" name="amount" placeholder="Amount" readonly>
             <label for="amount">Amount</label>
+        </div>
+        <div class="form-floating">
+            <input type="number" class="form-control" id="gst" name="gst" placeholder="gst" readonly>
+            <label for="gst">GST 12%</label>
+        </div>
+            <div class="form-floating">
+            <input type="number" class="form-control" id="total_amount" name="total_amount" placeholder="Total Amount" readonly>
+            <label for="gst">Total Amount</label>
         </div>
 
         <div class="col-12">
@@ -179,12 +234,68 @@
         </div>
 
 
-        <div id="availabilityStatus"></div> <!-- Add a status element for room availability -->
+        <div id="availabilityStatus"></div>
         <div class="col-12">
             <button id="submitBtn" class="btn btn-primary w-100 py-3" type="submit">Book Now</button>
         </div>
     </div>
 </form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+    const roomNumberSelect = document.getElementById('roomNumber');
+    const submitButton = document.querySelector('button[type="submit"]');
+
+    // Disable submit button by default
+    submitButton.disabled = true;
+
+    // Event listener for changes in room number selection
+    roomNumberSelect.addEventListener('change', function() {
+        const roomNumber = this.value;
+        const checkinDate = checkinInput.value;
+        const checkoutDate = checkoutInput.value;
+
+        // Only proceed if all fields are filled
+        if (checkinDate && checkoutDate && roomNumber) {
+            // Construct FormData for POST request
+            const formData = new FormData();
+            formData.append('checkin', checkinDate);
+            formData.append('checkout', checkoutDate);
+            formData.append('room_number', roomNumber);
+
+            fetch("{% url 'check_availability' %}", {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}', // Ensure CSRF token is included for Django to accept POST request
+                },
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.available) {
+                    submitButton.disabled = false;
+                    $('.error_mgs').hide(); // Enable submit button if room is available
+                } else {
+                    submitButton.disabled = true; // Keep submit button disabled if room is not available
+                    $('.error_mgs').show(); // Show
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
+
+
+});
+
+
+
+
+
+
+</script>
+
 
 
 
@@ -194,35 +305,80 @@
         const availabilityStatus = document.getElementById("availabilityStatus");
         const amountInput = document.getElementById("amount");
 
-        document.getElementById("select3").addEventListener("change", function() {
-            const roomType = this.value;
-            roomNumberSelect.innerHTML = ""; // Clear existing options
 
-            let roomRangeStart, roomRangeEnd, roomAmount;
-            if (roomType === "Standard") {
-                roomRangeStart = 101;
-                roomRangeEnd = 110;
-                roomAmount = 1500;
-            } else if (roomType === "Deluxe") {
-                roomRangeStart = 201;
-                roomRangeEnd = 210;
-                roomAmount = 1800;
-            } else if (roomType === "Suite") {
-                roomRangeStart = 301;
-                roomRangeEnd = 302;
-                roomAmount = 3500;
+ $(document).ready(function(){
+
+     function updateDaysAndPrice() {
+        var checkin = $('#checkin').val();
+        var checkout = $('#checkout').val();
+
+
+        var checkinDate = new Date(checkin);
+        var checkoutDate = new Date(checkout);
+
+
+        if (checkoutDate > checkinDate) {
+
+            var differenceInTime = checkoutDate.getTime() - checkinDate.getTime();
+
+            var differenceInDays = differenceInTime / (1000 * 3600 * 24);
+            var totalDays = Math.round(differenceInDays);
+            $('#total_days').val(totalDays);
+            console.log(totalDays);
+        } else {
+            console.log("Check-out date must be after check-in date.");
+        }
+    }
+
+    $('#checkin, #checkout').change(updateDaysAndPrice);
+
+
+        $("#select3").change(function(){
+        var gst = '';
+            var seletedVal = $(this).val();
+            if(seletedVal == 'Standard'){
+                $('#standard_option').show();
+                $('#deluxe_option').hide();
+                $('#suite_option').hide();
+                var total_days = $('#total_days').val();
+                var main_total = total_days * 2000;
+                $('#amount').val(main_total);
+                var gst_rate = 12;
+                var gst_amount = Math.round((main_total * gst_rate) / 100);
+                var gst = 250;
+
+            }
+            else if(seletedVal == 'Deluxe'){
+                $('#deluxe_option').show();
+                $('#standard_option').hide();
+                $('#suite_option').hide();
+                var total_days = $('#total_days').val();
+                var main_total = total_days * 2500;
+                $('#amount').val(main_total);
+                var gst_rate = 12;
+                var gst_amount = Math.round((main_total * gst_rate) / 100);
+                var gst = 300;
+            }
+            else if(seletedVal == 'Suite'){
+                $('#deluxe_option').hide();
+                $('#standard_option').hide();
+                $('#suite_option').show();
+                var total_days = $('#total_days').val();
+                var main_total = total_days * 3500;
+                $('#amount').val(main_total);
+                var gst_rate = 12;
+                var gst_amount = Math.round((main_total * gst_rate) / 100);
+                var gst = 350;
             }
 
-            for (let i = roomRangeStart; i <= roomRangeEnd; i++) {
-                const option = document.createElement("option");
-                option.value = i;
-                option.textContent = "Room " + i;
-                roomNumberSelect.appendChild(option);
-            }
+            $("#gst").val(gst_amount);
+            var total_amount = gst_amount + main_total;
+            $("#total_amount").val(total_amount);
+        })
 
-            // Update amount input
-            amountInput.value = roomAmount;
-        });
+
+    })
+
 
         const checkoutInput = document.getElementById('checkout');
         const today = new Date();
@@ -233,43 +389,84 @@
 
         checkoutInput.setAttribute("min", currentDate); // Set minimum date as current date
 
-        checkoutInput.addEventListener('change', function() {
-            const selectedDate = checkoutInput.value;
-            if (selectedDate === currentDate) {
-                availabilityStatus.innerHTML = "Rooms are available for today.";
-            } else {
-                availabilityStatus.innerHTML = "Rooms may be available for the selected date.";
-            }
-        });
-
-        const bookingForm = document.getElementById('bookingForm');
-        const submitBtn = document.getElementById('submitBtn');
-
-        bookingForm.addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-
-            // Send AJAX request to check room availability
-            fetch("{% url 'check_availability' %}", {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.available) {
-                    // If room is available, submit the form
-                    bookingForm.submit();
-                } else {
-                    // If room is not available, display error message
-                    availabilityStatus.innerHTML = "The room is not available for the selected dates.";
-                }
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-        });
     });
 </script>
+                    <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const checkinInput = document.getElementById('checkin');
+    const checkoutInput = document.getElementById('checkout');
+
+    // Function to format date to YYYY-MM-DD
+    function formatDate(date) {
+        const d = new Date(date),
+              month = '' + (d.getMonth() + 1),
+              day = '' + d.getDate(),
+              year = d.getFullYear();
+
+        return [year, month.padStart(2, '0'), day.padStart(2, '0')].join('-');
+    }
+
+    // Set the minimum check-in date to today
+    const today = new Date();
+    checkinInput.setAttribute('min', formatDate(today));
+
+    // Ensure the check-out date is at least one day after the check-in date
+    checkinInput.addEventListener('change', function() {
+        const selectedCheckinDate = new Date(this.value);
+        const minCheckoutDate = new Date(selectedCheckinDate);
+        minCheckoutDate.setDate(minCheckoutDate.getDate() + 1);
+
+        checkoutInput.setAttribute('min', formatDate(minCheckoutDate));
+        // Automatically set checkout date to minimum checkout date if the current checkout date is invalid
+        if (checkoutInput.value && (new Date(checkoutInput.value) <= selectedCheckinDate)) {
+            checkoutInput.value = formatDate(minCheckoutDate);
+        }
+    });
+
+    // Set the initial minimum checkout date to tomorrow
+    const tomorrow = new Date(new Date().setDate(new Date().getDate() + 1));
+    checkoutInput.setAttribute('min', formatDate(tomorrow));
+});
+</script>
+
+
+
+
+
+<script>
+
+
+    $(document).ready(function(){
+
+        $('#select_method').on('change',function(){
+            var value=$(this).val();
+            if(value==='direct_walk'){
+                $('#p-mode-1').slideDown()
+            }
+            else{
+                $('#p-mode-1').slideUp()
+
+            }
+        })
+
+    })
+
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
                     <!-- Include the JavaScript function to call the generate_receipt_view function after successful form submission -->
 
 
@@ -307,15 +504,9 @@
 
 
 
-        <!-- Newsletter Start -->
-        
 
-        <!-- Footer Start -->
  {% include 'footer.html' %}
-        <!-- Footer End -->
 
-
-        <!-- Back to Top -->
 
 
 

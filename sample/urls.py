@@ -10,9 +10,17 @@ urlpatterns = [
     path('services/', views.services, name= 'services'),
     path('header/',views.header, name= 'header' ),
     path('check_availability/', views.check_availability, name='check_availability'),
-    path('generate-receipt/', views.generate_receipt_view, name='generate_receipt'),
-    path('show-receipt/', views.show_receipt, name='show_receipt'),
-    path('download-receipt/', views.download_receipt, name='download_receipt'),
+    # path('generate-receipt/', views.generate_receipt_view, name='generate_receipt'),
+    #path('download-receipt/', views.download_receipt, name='download_receipt'),
+    #path('payment_success/', views.payment_success, name='payment_success'),
+    path('payment_failure/', views.payment_failure, name='payment_failure'),
+    path('callback/', views.callback, name='callback'),
+    path('payment-success/<int:booking_id>/',views.payment_success, name='payment_success'),
+
+
+
+
+
 
 
 
