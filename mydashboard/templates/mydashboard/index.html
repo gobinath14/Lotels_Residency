@@ -133,11 +133,12 @@
 
                <li style="border-radius: 70px 0px 0px 70px;">
                     <a href="{% url 'mydashboard_contact' %}">
-
                         <span class="nav-icon uil uil-create-dashboard" style="color: #123597;"></span>
                          <span class="menu-text" style="color: #fff;">Contact</span>
                     </a>
                 </li>
+
+
           </ul>
 
         </div>
@@ -253,9 +254,9 @@
          <th>
             <span class="userDatatable-title">select method</span>
         </th>
-<!--        <th>-->
-<!--            <span class="userDatatable-title">direct walkin</span>-->
-<!--        </th>-->
+        <th>
+            <span class="userDatatable-title">payment method</span>
+      </th>
 
 
     </tr>
@@ -306,9 +307,9 @@
          <td>
             <div class="userDatatable-content">{{ booking.select_method}}</div>
         </td>
-<!--        <td>-->
-<!--            <div class="userDatatable-content">{{ booking.payment_method}}</div>-->
-<!--        </td>-->
+      <td>
+           <div class="userDatatable-content">{{ booking.payment_method}}</div>
+      </td>
 
 
     </tr>
